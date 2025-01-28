@@ -1,62 +1,67 @@
-console.log('js ok')
+console.log('JS OK');
 
-// Calcolatore di prezzo biglietto in base ai dati raccolti dell'utente.
+// |GOT INTERESTED  DOCUMENT ELEMENTS 
+const nameField = document.getElementById('name');
 
-/*
-1. Chiedere all'utente il numero di chilometri che vuole percorre.
-2. Chiedere l'età all'utente.
-3. Calcolare il prezzo del viaggio.
-4a. Applicare lo sconto in base all'età dell'utente.
-    4a. Applica un 20% per i minorenni.
-    ab. Applica un 40% per gli over 60.
-*/
+const lastNameField = document.getElementById('lastname');
 
-/* Fase Preparatoria */
+const priceField = document.getElementById('price-result');
 
-const tariffa = (0.21);
-console.log('tariffa', tariffa, typeof tariffa);
+const messageField = document.getElementById('message');
+// |
 
-const sconto20 = (0.2);
-const sconto60 = (0.6);
-/* Fase Raccolta dati */
+let messageDiscount;
 
-//1. Chiedere all'utente il numero di chilometri che vuole percorre.
-const chilometri = parseInt(prompt('Qual è la distanza da percorrere in (Km)?', 10));
-console.log('chilometri', chilometri, typeof chilometri);
+// |PROMPT TO GET PASSENGER NAME
+const passengerName = prompt('qual è il tuo nome?', 'Josè');
 
-//2. Chiedere l'età all'utente.
-const età = parseInt(prompt('Quanti anni ha?', '18'));
-console.log('età', età, typeof età);
+// |PROMPT TO GET PASSENGER LASTNAME
+const passengerLastName = prompt('qual è il tuo cognome?', 'Feliz');
 
-/* Fase di validazione*/
+// |PROMPT TO GET PASSENGER AGE
+const passengerAge = parseInt(prompt('qual è la tua età?', 25));
 
+// |PROMPT TO GET TRAVEL DISTANCE
+const travelDistance = parseInt(prompt('quanti chilometri devi percorrere?', 90));
 
-if (isNaN(chilometri) || isNaN(età)) {
-    alert('Compilare correttamente i campi richiesti');
-}
+// |TRAVEL RATE
+const travelRate = 0.21;
 
+console.log(travelDistance, passengerAge);
 
+// |CALC. TO GET TRAVEL PRICE WITHOUT DISCOUNT
+const travelPrice = travelDistance * travelRate;
 
-/* Fase di elaborazione dati */
+console.log(travelPrice);
 
-//3. Calcolare il prezzo del viaggio.
-const prezzo = (chilometri * tariffa).toFixed(2);
+// |CONDITION TO SET DISCOUNT BY PASSENGER AGE
+let discount = 0;
+if (passengerAge >= 65) {
+    discount = 0.6;
+} else if (passengerAge < 18) {
+    discount = 0.4;
+} else {
+    discount = 0;
+};
 
-const prezzoscontato60 = (prezzo - (prezzo * sconto60)).toFixed(2);
-const prezzoscontato20 = (prezzo - (prezzo * sconto20)).toFixed(2);
+// |CALC. TO GET DISCOUNT AMOUNT
+const discountAmount = ((travelPrice * discount).toPrecision(3));
 
-//4a. Applicare lo sconto in base all'età dell'utente.
+console.log(discountAmount);
 
-//4a. Applica un 60% per gli over 60.
-if (età > 60) {
-    console.log('sconto60', prezzoscontato60, typeof prezzoscontato60);
+// |TOTAL PRICE WITH DISCOUNT
+const totalPrice = parseFloat((travelPrice - discountAmount).toPrecision(3));
 
-    //4a. Applica un 20% per i minorenni.    
-} else if (età < 18) {
-    console.log('sconto20', prezzoscontato20, typeof prezzoscontato20);
+console.log(travelPrice, discount, totalPrice);
 
-}
-else {
-    console.log('prezzo', prezzo, typeof prezzo);
-}
+// |SET THE MESSAGE BASED ON WHETHER OR NOT THERE IS A DISCOUNT 
+passengerAge >= 65 || passengerAge < 18 ? messageDiscount = `Ha ricevuto uno sconto di: ${discountAmount}€` : messageDiscount = 'Non ha ricevuto nessun sconto per la suo età';
 
+// |PRINTED ON PAGE
+nameField.innerText = passengerName;
+
+lastNameField.innerText = passengerLastName;
+
+priceField.innerHTML = `${totalPrice} €`;
+
+messageField.innerText = messageDiscount;
