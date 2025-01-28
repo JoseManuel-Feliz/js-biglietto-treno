@@ -1,8 +1,54 @@
-div {
-    width: 900px;
-    ;
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font: 22px Verdana, Geneva, Tahoma, sans-serif;
 }
 
-img {
-    width: 100%;
+/* CUSTOM PROPERTIES */
+
+/* UTILS */
+.container {
+    width: 1300px;
+    margin: 0 auto;
 }
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fs-2rem {
+    font-size: 2rem;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+/* SPACING */
+.mx-30 {
+    margin: 0 30px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+/* GENERICS */
