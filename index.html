@@ -4,24 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biglietto treno</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
+    <title>js-biglietto-treno</title>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- SCRIPT JS -->
+    <script defer src="./js/script.js"></script>
 </head>
 
 <body>
-    <div id="trainticket">
-        <img src="./img/UB-20240623155857855628.jpg" alt="ticket image">
-        <span>age</span>
-        <span>travel distance</span>
-        <span>fare</span>
-        <span class=""></span>
+    <div class="container pt-30 text-center">
+        <!-- TITLE -->
+        <h1 class="fw-bold fs-2rem">BIGLIETTO TRENO</h1>
 
+        <div class="input-wrapper d-flex mt-30 align-items-center justify-center">
+            <!-- NAME PASSENGER -->
+            <div class="name">
+                <div class="fw-bold">NOME</div>
+                <div id="name"></div>
+            </div>
+            <!-- LASTNAME PASSENGER -->
+            <div class="mx-30">
+                <div class="fw-bold">COGNOME</div>
+                <div id="lastname"></div>
+            </div>
+
+            <!-- TICKET PRICE  -->
+            <div class="ticket-price">
+                <div class="fw-bold">COSTO</div>
+                <div id="price-result"></div>
+            </div>
+        </div>
+        <div id="message" class="mt-30"></div>
     </div>
 </body>
 
-</html>Bonus
-Stampare il prezzo finale sulla pagina invece che in console
-Aggiungere, sempre in pagina, altre informazioni, come il prezzo prima dello sconto e l'età e il chilometraggio indicati
-dall'utente
-Abbellire col CSS
+</html>
